@@ -18,15 +18,15 @@
     "fs-extra":  "^11.2.0"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "chai-fs": "^0.1.0",
+    "chai": "^4.3.10",
+    "chai-fs": "^1.0.0",
     "mocha": "^10.2.0",
     "rimraf": "^5.0.5"
   },
   "scripts": {
     "start": "coffee ./src/index.coffee",
     "build": "coffee --output dist --compile src",
-    "test": "NODE_ENV=test mocha -r coffeescript/register --compilers coffee:coffeescript --recursive ./test/*.coffee",
-    "test-watch": "NODE_ENV=test mocha -r coffeescript/register --compilers coffee:coffeescript --recursive test/*.coffee --watch"
+    "test": "NODE_ENV=test mocha -r coffeescript/register --recursive ./test/*.coffee",
+    "test-watch": "NODE_ENV=test mocha -r coffeescript/register --recursive test/*.coffee --watch"
   }
 }
