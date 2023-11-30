@@ -17,7 +17,7 @@ class App
 
   ###*
   # @param {fs} _fs Required lib
-  # @param {_child-process} _child_process Required lib
+  # @param {_child_process} _child_process Required lib
   # @param {path} _path Required lib
   # @param {Utils} utils My lib
   # @param {Formatter} formatter My lib
