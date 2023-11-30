@@ -15,14 +15,14 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
     "coffeescript": "^2.7.0",
-    "rimraf": "^2.5.4",
     "sync-exec": "^0.6.2",
     "fs-extra":  "^11.2.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-fs": "^0.1.0",
-    "mocha": "^10.2.0"
+    "mocha": "^10.2.0",
+    "rimraf": "^5.0.5"
   },
   "scripts": {
     "start": "coffee ./src/index.coffee",
