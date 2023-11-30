@@ -19,13 +19,12 @@ class App
   # @param {fs} _fs Required lib
   # @param {sync-exec} _exec Required lib
   # @param {path} _path Required lib
-  # @param {mkdirp} _mkdirp Required lib
   # @param {Utils} utils My lib
   # @param {Formatter} formatter My lib
   # @param {PageFactory} pageFactory My lib
   # @param {Logger} logger My lib
   ###
-  constructor: (@_fs, @_exec, @_path, @_mkdirp, @utils, @formatter, @pageFactory, @logger) ->
+  constructor: (@_fs, @_exec, @_path, @utils, @formatter, @pageFactory, @logger) ->
     typesAdd = App.outputTypesAdd.join '+'
     typesRemove = App.outputTypesRemove.join '-'
     typesRemove = if typesRemove then '-' + typesRemove else ''
@@ -79,7 +78,9 @@ class App
   ###
   writeMarkdownFile: (text, fullOutFileName) ->
     fullOutDirName = @utils.getDirname fullOutFileName
-    @_mkdirp.sync fullOutDirName
+
+    @_fs.mkdirpSync fullOutDirName
+    # @_mkdirp.sync fullOutDirName
     # had to comment out this mkdrip sync does not seem to accept a logger error function as an argument (anymore?)
     # (error) ->
     #   if error
