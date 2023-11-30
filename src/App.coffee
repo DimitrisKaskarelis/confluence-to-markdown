@@ -79,9 +79,11 @@ class App
   ###
   writeMarkdownFile: (text, fullOutFileName) ->
     fullOutDirName = @utils.getDirname fullOutFileName
-    @_mkdirp.sync fullOutDirName, (error) ->
-      if error
-        @logger.error 'Unable to create directory #{fullOutDirName}'
+    @_mkdirp.sync fullOutDirName
+    # had to comment out this mkdrip sync does not seem to accept a logger error function as an argument (anymore?)
+    # (error) ->
+    #   if error
+    #     @logger.error 'Unable to create directory #{fullOutDirName}'
 
     tempInputFile = fullOutFileName + '~'
     @_fs.writeFileSync tempInputFile, text, flag: 'w'
