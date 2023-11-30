@@ -3,7 +3,6 @@ class Bootstrap
   _fs = require 'fs-extra'
   _exec = require 'sync-exec'
   _path = require 'path'
-  _ncp = require 'ncp'
   _cheerio = require 'cheerio'
 
   Utils = require './Utils'
@@ -22,7 +21,7 @@ class Bootstrap
     pathResult = _path.resolve pathResult
 
     logger = new Logger Logger.INFO
-    utils = new Utils _fs, _path, _ncp, logger
+    utils = new Utils _fs, _path, logger
     formatter = new Formatter _cheerio, utils, logger
     pageFactory = new PageFactory formatter, utils
     app = new App _fs, _exec, _path, utils, formatter, pageFactory, logger

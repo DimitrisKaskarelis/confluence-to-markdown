@@ -4,7 +4,6 @@ global.assert = chai.assert
 global._fs = require 'fs-extra'
 global._exec = require 'sync-exec'
 global._path = require 'path'
-global._ncp = require 'ncp'
 global._rmdir = require 'rimraf'
 global._cheerio = require 'cheerio'
 
