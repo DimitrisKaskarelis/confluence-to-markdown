@@ -2,7 +2,7 @@ global.chai = require 'chai'
 global.assert = chai.assert
 
 global._fs = require 'fs-extra'
-global._exec = require 'sync-exec'
+global._child_process = require 'child_process'
 global._path = require 'path'
 global._rmdir = require 'rimraf'
 global._cheerio = require 'cheerio'

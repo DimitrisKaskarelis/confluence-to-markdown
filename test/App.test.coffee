@@ -10,7 +10,7 @@ describe 'App', ->
     logger = new Logger Logger.WARNING
     formatter = new Formatter _cheerio, logger
     utils = new Utils _fs, _path, logger
-    app = new App _fs, _exec, _path, utils, formatter, logger
+    app = new App _fs, _child_process, _path, utils, formatter, logger
     app.convert pathResource, pathResult
 
 
@@ -21,5 +21,5 @@ describe 'App', ->
     logger = new Logger Logger.WARNING
     formatter = new Formatter _cheerio, logger
     utils = new Utils _fs, _path, logger
-    app = new App _fs, _exec, _path, utils, formatter, logger
+    app = new App _fs, _child_process, _path, utils, formatter, logger
     app.convert pathResource, pathResult

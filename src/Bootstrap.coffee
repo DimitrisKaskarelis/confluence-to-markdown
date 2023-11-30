@@ -1,7 +1,7 @@
 class Bootstrap
 
   _fs = require 'fs-extra'
-  _exec = require 'sync-exec'
+  _child_process = require 'child_process'
   _path = require 'path'
   _cheerio = require 'cheerio'
 
@@ -24,7 +24,7 @@ class Bootstrap
     utils = new Utils _fs, _path, logger
     formatter = new Formatter _cheerio, utils, logger
     pageFactory = new PageFactory formatter, utils
-    app = new App _fs, _exec, _path, utils, formatter, pageFactory, logger
+    app = new App _fs, _child_process, _path, utils, formatter, pageFactory, logger
 
     logger.info 'Using source: ' + pathResource
     logger.info 'Using destination: ' + pathResult

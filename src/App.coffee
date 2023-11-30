@@ -17,14 +17,14 @@ class App
 
   ###*
   # @param {fs} _fs Required lib
-  # @param {sync-exec} _exec Required lib
+  # @param {_child-process} _child_process Required lib
   # @param {path} _path Required lib
   # @param {Utils} utils My lib
   # @param {Formatter} formatter My lib
   # @param {PageFactory} pageFactory My lib
   # @param {Logger} logger My lib
   ###
-  constructor: (@_fs, @_exec, @_path, @utils, @formatter, @pageFactory, @logger) ->
+  constructor: (@_fs, @_child_process, @_path, @utils, @formatter, @pageFactory, @logger) ->
     typesAdd = App.outputTypesAdd.join '+'
     typesRemove = App.outputTypesRemove.join '-'
     typesRemove = if typesRemove then '-' + typesRemove else ''
@@ -92,7 +92,7 @@ class App
       @pandocOptions +
       ' -o "' + fullOutFileName + '"' +
       ' "' + tempInputFile + '"'
-    out = @_exec command, cwd: fullOutDirName
+    out = @_child_process.execSync command, cwd: fullOutDirName
     @logger.error out.stderr if out.status > 0
     @_fs.unlinkSync tempInputFile
 
